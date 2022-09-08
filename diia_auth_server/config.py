@@ -9,7 +9,7 @@ from functools import partial, lru_cache
 from configparser import ConfigParser
 
 
-CONFIG_DIR = ".config"
+CONFIG_DIR = "config"
 CONFIG_FILE_NAME = "diia_auth_server.conf"
 CONFIG_FILE_PATH = pathlib.Path.home() / CONFIG_DIR / CONFIG_FILE_NAME
 
@@ -24,7 +24,7 @@ def get_config(path: str = CONFIG_FILE_PATH) -> ConfigParser:
     """
     config = ConfigParser()
     config.read(path)
-
+    print("!!!!!!!!!", config)
     return config
 
 
@@ -38,3 +38,4 @@ server_option = partial(get_option, "server")
 db_option = partial(get_option, "db")
 sentry_option = partial(get_option, "sentry")
 logging_option = partial(get_option, "logging")
+id_gov_ua_option = partial(get_option, "id_gov")
